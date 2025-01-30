@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Game Review System"; // Set the page title here
+}
+
+<div class="container mt-5">
+    
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="display-4 text-black">Game Review System</h1>
+        </div>
+    </div>
+
+    
+    <div class="row mt-4">
+       
+        <div class="col-12 text-center">
+            <div class="game-review-section">
+                <a href="/Games" class="section-title text-black">Games</a> <!-- Link to Games -->
+            </div>
+        </div>
+
+       
+        <div class="col-12 text-center">
+            <div class="game-review-section">
+                <a href="/Reviews" class="section-title text-black">Reviews</a> <!-- Link to Reviews -->
+            </div>
+        </div>
+
+       
+        <div class="col-12 text-center">
+            <div class="game-review-section">
+                <a href="/Platforms" class="section-title text-black">Platforms</a> <!-- Link to Platforms -->
+            </div>
+        </div>
+    </div>
+</div>

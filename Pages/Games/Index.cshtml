@@ -1,0 +1,58 @@
+﻿@page
+@model GameReviewSystem.Pages.Games.IndexModel
+
+@{
+    ViewData["Title"] = "Game List";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Add New Game</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].ReleaseDate)
+            </th>
+            <th>Platforms</th>  
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Game)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @if (item.GamePlatforms != null)
+                    {
+                        @foreach (var gamePlatform in item.GamePlatforms)
+                        {
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="platform-@gamePlatform.Platform.PlatformId" checked disabled />
+                                <label class="form-check-label" for="platform-@gamePlatform.Platform.PlatformId">
+                                    @gamePlatform.Platform.Name
+                                </label>
+                            </div>
+                        }
+                    }
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.GameId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.GameId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.GameId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
